@@ -6,20 +6,16 @@ import './App.css';
 
 function App() {
 
+  const [members, setMembers] = useState([]);
+
+  const [memberToEdit, setMemberToEdit] = useState([]);
+
+  // const editHandler = (props) => setMemberToEdit(members);
   
-
-  const [members, setMembers] = useState([]
-  )
-
-
-  
-
-  
-
   return (
     <div className="App">
-      <Form  members = {members} setMembers = {setMembers}/>
-      <Cards members = {members} />
+      <Form  members = {members} setMembers = {setMembers} memberToEdit ={memberToEdit} setMemberToEdit = {setMemberToEdit}/>
+      <Cards  members = {members} memberToEdit ={memberToEdit} setMemberToEdit = {setMemberToEdit} />
     </div>
   );
 }

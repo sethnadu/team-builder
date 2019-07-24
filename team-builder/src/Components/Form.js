@@ -1,13 +1,19 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
 
 
 function Form (props) {
         console.log(props);
 
-    const [newMember, setNewMembers] = useState({}
-    
-    );
+    const [newMember, setNewMembers] = useState({
+       
+    });
+
+    useEffect(() => {
+      
+
+        
+    }, [])
 
     
     const submitHandler = event => {
