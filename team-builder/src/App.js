@@ -8,14 +8,22 @@ function App() {
 
   const [members, setMembers] = useState([]);
 
-  const [memberToEdit, setMemberToEdit] = useState([]);
+ const submitMember = member => setMembers([...members, member])
 
-  // const editHandler = (props) => setMemberToEdit(members);
-  
+  const edit =  uMember => setMembers([...members.map(member => {
+    if (member.id === uMember.id) {
+      return uMember;
+    }
+    return member;
+  })])
+
+
   return (
     <div className="App">
-      <Form  members = {members} setMembers = {setMembers} memberToEdit ={memberToEdit} setMemberToEdit = {setMemberToEdit}/>
-      <Cards  members = {members} memberToEdit ={memberToEdit} setMemberToEdit = {setMemberToEdit} />
+      <Form  add = {submitMember} />
+      {members.map((member, i) => (
+        <Cards  member = {member} key ={i}  edit = {edit}/>
+      ))}
     </div>
   );
 }
